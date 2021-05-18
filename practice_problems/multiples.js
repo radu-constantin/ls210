@@ -1,11 +1,8 @@
-function multiplesOfThreeAndFive(number) {
-  for (i = 1; i <= number; i += 1) {
-    if (i % 3 === 0 && i % 5 ===0) {
-      console.log(`${i}!`);
-    } else if (i % 3 === 0 || i % 5 ===0) {
-      console.log(`${i}`);
-    }
+function logMultiples(number) {
+  let largestMultiple = Math.floor(100 / number) * number
+  for(counter = largestMultiple; counter > 0; counter -= number) {
+    if (counter % 2 !== 0) console.log(counter);
   }
 }
 
-multiplesOfThreeAndFive(15);
+logMultiples(17)
