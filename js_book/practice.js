@@ -1,9 +1,17 @@
-let obj = {
-  foo: { a: "hello", b: "world" },
-  bar: ["example", "mem", null, { xyz: 6 }, 88],
-  qux: [4, 8, 12]
-};
+function wordCount(string) {
+  let counter = {};
+  let words = string.split(' ');
 
-obj['bar'][3]['xyz'] = 606;
+  for (let i = 0; i < words.length; i += 1) {
+    let word = words[i];
+    if (counter[word]) {
+      counter[word] += 1;
+    } else {
+      counter[word] = 1;
+    }
+  }
 
-console.log(Object.entries(obj.bar[3]));
+  return counter;
+}
+
+console.log(wordCount('box car cat bag box'));

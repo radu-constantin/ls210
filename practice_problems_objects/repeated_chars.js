@@ -1,20 +1,40 @@
 function repeatedCharacters(string) {
+  let counter = {};
   string = string.toLowerCase();
-  let result = {};
-  let counter = 0;
 
   for (let i = 0; i < string.length; i += 1) {
-    let counter = 0;
-    let current_char = string[i];
-
-    for (let x = 0; x < string.length; x += 1) {
-      if (current_char === string[x]) counter += 1;
+    let char = string[i];
+    if (counter[char]) {
+      counter[char] += 1;
+    } else {
+      counter[char] = 1;
     }
-
-    if (counter > 1) result[current_char] = counter;
   }
 
-  return result;
+  for (let key in counter) {
+    if (counter[key] < 2) {
+      delete counter[key];
+    }
+  }
+
+  return counter;
 }
 
-console.log(repeatedCharacters('Paper'));
+
+
+
+
+console.log(repeatedCharacters('Programming'));    // { r: 2, g: 2, m: 2 }
+console.log(repeatedCharacters('Combination'));    // { o: 2, i: 2, n: 2 }
+console.log(repeatedCharacters('Pet'));            // {}
+console.log(repeatedCharacters('Paper'));          // { p: 2 }
+console.log(repeatedCharacters('Baseless'));       // { s: 3, e: 2 }
+
+// 
+//
+//
+//
+//
+//
+//
+//
